@@ -6,7 +6,11 @@ compiler:
   - clang
   - gcc
 
+before_install:
+  - apt-get update
+  - apt-get upgrade cmake
+
 before_script:
   - git clone https://github.com/daid/SeriousProton
 
-script: cmake CMakeLists.txt && make
+script: cmake CMakeLists.txt -DSERIOUS_PROTON_DIR:string=../SeriousProton && make
