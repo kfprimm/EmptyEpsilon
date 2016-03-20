@@ -1,7 +1,12 @@
+sudo: false # container-based infrastructure
+
 language: cpp
 
 compiler:
   - clang
   - gcc
 
-install: cmake
+before_script:
+  - git clone https://github.com/daid/SeriousProton
+
+script: cmake CMakeLists.txt && make
